@@ -1,0 +1,23 @@
+<div class="container mt-4 p-4">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label for="search"><h2>Select Course <img src="./assets/fire.svg" alt=""></h2></label>
+        <input type="text" class="form-control" id="search" placeholder="e.g. Python" 
+        [(ngModel)] = "Brand">
+      </div>
+    </div>
+    <div class="container">
+      <tr *ngFor="let course of proarray | filter:Brand">
+        <div class="card mt-4" style="width: 18rem;">
+          <img src="{{course.Image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{course.Brand}}</h5>
+            <p class="card-text">{{course.Description}}</p>
+            <p class="card-text"><i class="bi bi-stopwatch"></i> {{course.Time}}</p>
+            <p class="card-text"><i class="bi bi-star"></i> {{course.Rate}}</p>
+            <a href="#" class="btn btn-primary" routerLink="{{course.Link}}" >Join Now</a>
+          </div>
+        </div>
+      </tr>
+      </div>
+  </div>

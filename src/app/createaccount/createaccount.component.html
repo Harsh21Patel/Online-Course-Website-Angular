@@ -1,0 +1,42 @@
+<h1 class="text-primary text-center mt-5">Sign Up</h1>
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-12">
+            <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
+               
+                    <div class="form-group">
+                        <label for="sname">Name</label>
+                        <input type="text" class="form-control" id="sname" name="sname" ngModel required />
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" ngModel required email
+                            #email="ngModel" />
+                        <span class="help-text" *ngIf="!email.valid && email.touched">Please enter
+                            valid
+                            email</span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" name="gender" ngModel  required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="sname">Password</label>
+                        <input type="password" class="form-control" id="pass" name="pass" ngModel required />
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="!f.valid" (click)="showMessageSoon()">SignUp</button>
+                        <h3 class="text-primary mt-3" *ngIf="showMyMessage">SignUp Successfull Now Go To <a class="btn btn-primary" role="button" routerLink="/signin">Login Page</a> </h3>
+                    </div>
+            </form>
+        </div>
+        
+    </div>
+</div> 
+<br><br><br><br>

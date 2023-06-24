@@ -1,0 +1,31 @@
+<h1 class="text-primary text-center mt-5">Sign In</h1>
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-12">
+            <form (ngSubmit)="onFormSubmit(f)" #f="ngForm">
+    
+                    <div class="form-group mt-3">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" ngModel required email
+                            #email="ngModel" />
+                        <span class="help-text" *ngIf="!email.valid && email.touched">Please enter
+                            valid
+                            email</span>
+                    </div>
+
+            
+                    <div class="form-group mt-3">
+                        <label for="sname">Password</label>
+                        <input type="password" class="form-control" id="pass" name="pass" ngModel required />
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="!f.valid" (click)="showMessageSoon()">SignIn</button>
+                        <h3 class="text-primary mt-3" *ngIf="showMyMessage">Login Successfull Now Go To <a class="btn btn-primary" role="button" routerLink="/">HomePage</a> </h3>
+                    </div>
+            </form>
+        </div>
+        
+    </div>
+</div> 
+<br><br><br><br>

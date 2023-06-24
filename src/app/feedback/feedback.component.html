@@ -1,0 +1,22 @@
+<h1 class="text-center text-primary mt-5">Feedback Form</h1>
+<div class="container">
+<form #feedbackForm="ngForm" (ngSubmit)="submitFeedback()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" iid="name" name="name" [(ngModel)]="feedbackData.name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="feedbackData.email" required email>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
+        <textarea class="form-control" name="feedback" [(ngModel)]="feedbackData.feedback" required></textarea> 
+      </div>
+
+    <button type="submit" class="btn btn-primary mt-2" [disabled]="!feedbackForm.valid" (click)="showMessageSoon()">Send</button>
+
+    <h3 class="text-primary mt-3" *ngIf="showMyMessage">Feedback Submitted Successfull Now Go To <a class="btn btn-primary" role="button" routerLink="/">Home Page</a> </h3>
+</form>
+</div>
+<br><br><br><br>
